@@ -266,6 +266,65 @@ strong {
     line-height: 1.8;
 }
 
+/* ===== 服务器信息 ===== */
+.server-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 32px;
+    max-width: 640px;
+}
+
+.server-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+
+.server-info-item:hover {
+    border-color: rgba(74, 222, 128, 0.25);
+    background: var(--bg-card-hover);
+}
+
+.server-info-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.server-info-value {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--code-bg);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.server-info-value:hover {
+    background: rgba(74, 222, 128, 0.1);
+    border-color: rgba(74, 222, 128, 0.35);
+}
+
+.server-info-link {
+    text-decoration: none;
+}
+
+.server-info-value.copied {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
 .hero-btn {
     display: inline-block;
     padding: 14px 36px;
@@ -693,6 +752,16 @@ strong {
 
     .hero {
         min-height: 85vh;
+    }
+
+    .server-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .server-info-item {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .back-to-top {
