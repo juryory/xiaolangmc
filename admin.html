@@ -321,6 +321,11 @@ owner     →  服主，* 节点</div>
             </div>
             <p class="section-intro">两个保护插件分工：<strong>GriefPrevention</strong> 给玩家在主世界自助圈地，<strong>WorldGuard</strong> 由管理员定义全局规则区域（PVP 区、安全区、禁飞区等）。空岛玩法的保护由 BentoBox 自身处理，参见下面"空岛"分区。</p>
 
+            <div class="info-tip">
+                <span class="tip-icon">🛡️</span>
+                <strong>当前部署的关键区域：</strong>出生点周围 <strong>200 格半径</strong>被配置为安全区（<code>mob-spawning deny</code> + <code>pvp deny</code>），服务器内公告为"新手保护圈"。对应命令示例见下方"WorldGuard" 部分。
+            </div>
+
             <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">GriefPrevention（玩家圈地）</h3>
             <div class="admin-command-card">
                 <div class="command-name">/adminclaims</div>
@@ -383,6 +388,20 @@ owner     →  服主，* 节点</div>
                 <ul>
                     <li><code>/rg flag __global__ pvp deny -w world</code> — 整个主世界禁 PVP</li>
                 </ul>
+            </div>
+
+            <div class="admin-command-card">
+                <div class="command-name">⚙️ 出生点 200 格安全区（当前配置）</div>
+                <div class="command-desc">以出生点为中心，半径 200 格的立方体 WorldGuard 区域，禁止刷怪 + 禁止 PVP。重现步骤：</div>
+                <ul>
+                    <li><code>//pos1 ~-200,~-100,~-200</code>（把 X/Z 范围写成相对坐标，Y 建议覆盖全高度）</li>
+                    <li><code>//pos2 ~200,~320,~200</code></li>
+                    <li><code>/rg define spawn_safe</code></li>
+                    <li><code>/rg flag spawn_safe mob-spawning deny</code> — 禁止怪物刷新</li>
+                    <li><code>/rg flag spawn_safe pvp deny</code> — 禁止 PVP</li>
+                    <li><code>/rg setpriority spawn_safe 5</code>（比其它默认区域优先）</li>
+                </ul>
+                <div class="command-note">保留怪物的<strong>出生蛋 / 刷怪笼</strong>仍会生效，此标志只拦截自然刷新。</div>
             </div>
 
         </section>

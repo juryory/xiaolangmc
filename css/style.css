@@ -1040,18 +1040,22 @@ a.entry-card.entry-card-admin::before {
 }
 
 .install-shot {
-    margin-top: 14px;
+    margin: 14px auto 0;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     overflow: hidden;
     background: var(--code-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
 }
 
 .install-shot img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    max-width: 900px;
     margin: 0 auto;
 }
 
