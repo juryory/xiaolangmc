@@ -32,10 +32,12 @@ xiaolangmc/
 ├── images/
 │   └── install/                 # 安装教程用的 19 张截图
 ├── scripts/
-│   ├── download-install-images.sh   # Linux/macOS/Git Bash：一键下载（含自动压缩）
-│   ├── download-install-images.ps1  # Windows PowerShell：一键下载（含自动压缩）
-│   ├── optimize-install-images.sh   # 独立压缩脚本（ImageMagick/Pillow）
-│   └── optimize-install-images.ps1  # 独立压缩脚本（.NET System.Drawing，无需外部依赖）
+│   ├── download-install-images.sh          # Linux/macOS/Git Bash：一键下载（自动压缩，支持 WEBP=1）
+│   ├── download-install-images.ps1         # Windows PowerShell：一键下载（自动压缩，支持 -Webp）
+│   ├── optimize-install-images.sh          # 独立 PNG 压缩（ImageMagick/Pillow）
+│   ├── optimize-install-images.ps1         # 独立 PNG 压缩（.NET System.Drawing，无外部依赖）
+│   ├── convert-install-images-to-webp.sh   # PNG → WebP 转换（需要 cwebp）
+│   └── convert-install-images-to-webp.ps1  # PNG → WebP 转换（自动下载 cwebp.exe）
 └── README.md                    # 本文档
 ```
 
@@ -150,9 +152,37 @@ bash scripts/download-install-images.sh
 
 两个脚本功能完全相同：从原图床拉取全部图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`），下载完会**自动按最大宽度 1200px 压缩**一次。已下好的文件会被自动跳过。
 
-### 单独重新压缩
+### 想要更小的体积：转成 WebP
 
-如果图片已经下好，只想压缩，用独立压缩脚本：
+WebP 对 UI 截图的压缩比远好于 PNG（同等质量体积约为优化 PNG 的 **1/3 ~ 1/5**），现代浏览器（Edge / Chrome / Firefox / Safari）全部原生支持。
+
+**Windows（PowerShell，自动下载 cwebp.exe）：**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\convert-install-images-to-webp.ps1
+# 或者下载时就一步到位：
+powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1 -Webp
+```
+
+**Linux / macOS（需要 cwebp：`apt install webp` 或 `brew install webp`）：**
+
+```bash
+bash scripts/convert-install-images-to-webp.sh
+# 下载+转换一步到位：
+WEBP=1 bash scripts/download-install-images.sh
+```
+
+脚本会把 `images/install/*.png` 全部转成 `.webp`（默认删除 PNG 以节省仓库空间），并**自动把 `install.html` / `INSTALL.md` 中的 `.png` 引用改成 `.webp`**，你只需 `git add` 后提交即可。
+
+常用参数：
+- `-Lossless` / `LOSSLESS=1` — 无损模式（体积稍大但不损失像素，文字更锐利）
+- `-Quality 80` / `QUALITY=80` — 质量 0-100，默认 90
+- `-KeepPng` / `KEEP_PNG=1` — 转换后保留 PNG（默认删除）
+- `-Force` / `FORCE=1` — 忽略 `.webp-converted` 标记重跑
+
+### 单独重新压缩（保持 PNG 格式）
+
+如果只想压缩而不想换格式，用独立压缩脚本：
 
 **Windows（PowerShell，无需外部依赖）：**
 

@@ -1,7 +1,15 @@
 ﻿# 批量下载小狼MC安装教程使用的截图到 images/install/
 # 用法（在仓库根目录执行）：
 #   powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
-# 或直接双击右键"使用 PowerShell 运行"
+#   powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1 -Webp
+#
+# 可选参数：
+#   -Webp   下载完成后，额外转换成 WebP（体积更小，约为原 PNG 的 10-15%）
+
+[CmdletBinding()]
+param(
+    [switch]$Webp
+)
 
 $ErrorActionPreference = 'Stop'
 
@@ -80,15 +88,27 @@ if ($fail -gt 0) {
 }
 
 Write-Host ""
-# 下载完自动跑一次压缩（基于 .NET System.Drawing，Windows 自带，无需额外依赖）
-$optimizeScript = Join-Path $PSScriptRoot 'optimize-install-images.ps1'
-if (Test-Path $optimizeScript) {
-    Write-Host "自动压缩图片中..." -ForegroundColor Cyan
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $optimizeScript
+if ($Webp) {
+    # 直接走 WebP 流程（转 WebP 后的体积更小，通常是优化 PNG 的 1/3~1/5）
+    $webpScript = Join-Path $PSScriptRoot 'convert-install-images-to-webp.ps1'
+    if (Test-Path $webpScript) {
+        Write-Host "按 -Webp 参数：转换为 WebP..." -ForegroundColor Cyan
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $webpScript
+    }
+} else {
+    # 默认跑 PNG 优化（基于 .NET System.Drawing，Windows 自带，无需额外依赖）
+    $optimizeScript = Join-Path $PSScriptRoot 'optimize-install-images.ps1'
+    if (Test-Path $optimizeScript) {
+        Write-Host "自动压缩 PNG..." -ForegroundColor Cyan
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $optimizeScript
+        Write-Host ""
+        Write-Host "提示：想要更小的体积可以转 WebP：" -ForegroundColor DarkGray
+        Write-Host "  powershell -ExecutionPolicy Bypass -File scripts\convert-install-images-to-webp.ps1" -ForegroundColor DarkGray
+    }
 }
 
 Write-Host ""
 Write-Host "下一步：" -ForegroundColor Cyan
-Write-Host "  git add $OutDir"
+Write-Host "  git add $OutDir install.html INSTALL.md"
 Write-Host "  git commit -m 'chore: 添加安装教程截图'"
 Write-Host "  git push"
