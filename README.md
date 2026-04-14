@@ -20,7 +20,7 @@
 ```
 xiaolangmc/
 ├── index.html        # 首页：英雄区 + 服务特色 + 入口卡 + 新人必读
-├── commands.html     # 玩家命令大全（家、传送、互动、经济、圈地、多世界、地皮、其他、速查、注意）
+├── commands.html     # 玩家命令大全（家、传送、互动、经济、圈地、多世界、空岛、其他、速查、注意）
 ├── admin.html        # 管理员手册（图形化版本）
 ├── ADMIN.md          # 管理员手册（Markdown 版本，与 admin.html 内容同步）
 ├── css/
@@ -56,7 +56,7 @@ xiaolangmc/
 | `#economy` | 经济 | balance / pay / baltop |
 | `#land-claim` | 圈地保护 (GriefPrevention) | 4 步圈地教程 + trust 系列分级权限 + subdivideclaim |
 | `#worlds` | 多世界 (Multiverse) | mv list / mvtp / BlueMap |
-| `#plots` | 地皮世界 (PlotSquared) | 4 步领地皮教程 + 12 个 plot 命令 |
+| `#islands` | 空岛世界 (BentoBox + AOneBlock) | 4 步开空岛教程 + 14 个 island 命令 |
 | `#other` | 其他实用命令 | help / rules / motd / kit / menu / ping |
 | `#quick-ref` | 常见场景速查 | "我想……" 对照表 |
 | `#warnings` | 注意事项 | 8 条玩家须知 |
@@ -69,16 +69,17 @@ xiaolangmc/
 2. LuckPerms 权限组结构、节点示例、临时权限
 3. EssentialsX 管理命令（封禁、踢人、禁言、监狱、隐身、给物、修复、经济）
 4. Multiverse 多世界（创建、导入、修改属性、重新生成）
-5. 保护类（GP / WorldGuard / PlotSquared）
-6. FastAsyncWorldEdit（//wand //set //replace //schem 等）
-7. CoreProtect（inspect / lookup / rollback / restore / purge）
-8. BlueMap（reload / fullrender / purge / 反代建议）
-9. Chunky 区块预生成
-10. DeluxeMenus 调试
-11. spark 性能监控
-12. PlugManX 插件热重载
-13. 日常运维节奏（每日 / 每周 / 每月 / 备份策略）
-14. 应急处置（熊孩子破坏 / 卡顿 / 崩溃 / 数据回档）
+5. 保护类（GP / WorldGuard）
+6. BentoBox + AOneBlock 空岛玩法
+7. FastAsyncWorldEdit（//wand //set //replace //schem 等）
+8. CoreProtect（inspect / lookup / rollback / restore / purge）
+9. BlueMap（reload / fullrender / purge / 反代建议）
+10. Chunky 区块预生成
+11. DeluxeMenus 调试
+12. spark 性能监控
+13. PlugManX 插件热重载
+14. 日常运维节奏（每日 / 每周 / 每月 / 备份策略）
+15. 应急处置（熊孩子破坏 / 卡顿 / 崩溃 / 数据回档）
 
 ---
 
@@ -95,7 +96,8 @@ xiaolangmc/
 | BlueMap | 3D 网页地图 |
 | GriefPrevention | 玩家自助圈地 |
 | WorldGuard | 管理员区域规则 |
-| PlotSquared | 地皮世界 |
+| BentoBox | 空岛玩法框架 |
+| AOneBlock | BentoBox 子模式：一格方块从虚空起步 |
 | CoreProtect (CE) | 行为日志、回滚 |
 | FastAsyncWorldEdit | 异步创世神 |
 | WESV | WorldEdit 选区可视化 |

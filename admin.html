@@ -26,6 +26,7 @@
                 <li><a href="#essentials">EssentialsX</a></li>
                 <li><a href="#worlds">多世界</a></li>
                 <li><a href="#protect">保护类</a></li>
+                <li><a href="#islands">空岛</a></li>
                 <li><a href="#worldedit">建造工具</a></li>
                 <li><a href="#performance">性能与维护</a></li>
                 <li><a href="#daily">日常运维</a></li>
@@ -68,7 +69,8 @@
                 <li><a href="#luckperms">🔑 LuckPerms 权限</a></li>
                 <li><a href="#essentials">⚙️ EssentialsX 管理命令</a></li>
                 <li><a href="#worlds">🌍 Multiverse 多世界</a></li>
-                <li><a href="#protect">🛡️ 保护类（GP / WG / Plot）</a></li>
+                <li><a href="#protect">🛡️ 保护类（GP / WG）</a></li>
+                <li><a href="#islands">🏝️ BentoBox + AOneBlock 空岛</a></li>
                 <li><a href="#worldedit">🎨 FAWE 创世神</a></li>
                 <li><a href="#coreprotect">📝 CoreProtect 行为日志</a></li>
                 <li><a href="#bluemap">🗺️ BlueMap 地图</a></li>
@@ -110,7 +112,8 @@
                         <tr><td><strong>BlueMap</strong></td><td><span class="plugin-category world">世界</span></td><td>3D 网页地图（端口 8100）</td><td><code>5.16</code></td></tr>
                         <tr><td><strong>GriefPrevention</strong></td><td><span class="plugin-category protect">保护</span></td><td>金铲圈地，玩家自助保护建筑</td><td>最新</td></tr>
                         <tr><td><strong>WorldGuard</strong></td><td><span class="plugin-category protect">保护</span></td><td>管理员区域规则（PVP、安全区、禁飞区）</td><td>最新</td></tr>
-                        <tr><td><strong>PlotSquared</strong></td><td><span class="plugin-category protect">保护</span></td><td>地皮世界，固定大小的整齐建造区</td><td>最新</td></tr>
+                        <tr><td><strong>BentoBox</strong></td><td><span class="plugin-category world">世界</span></td><td>空岛玩法框架（运行各种 Skyblock/OneBlock 子模式）</td><td><code>3.14.1</code></td></tr>
+                        <tr><td><strong>AOneBlock</strong></td><td><span class="plugin-category world">世界</span></td><td>BentoBox 子模式：一格方块从虚空起步</td><td><code>1.23.0</code></td></tr>
                         <tr><td><strong>CoreProtect (CE)</strong></td><td><span class="plugin-category protect">保护</span></td><td>方块/容器全程日志，可回滚</td><td><code>23.1</code></td></tr>
                         <tr><td><strong>FastAsyncWorldEdit</strong></td><td><span class="plugin-category util">工具</span></td><td>异步创世神，大范围建造与编辑</td><td><code>2.15.1-1300</code></td></tr>
                         <tr><td><strong>WESV</strong></td><td><span class="plugin-category util">工具</span></td><td>WorldEdit 选区可视化（粒子边框）</td><td><code>2.1.9</code></td></tr>
@@ -266,7 +269,7 @@ owner     →  服主，* 节点</div>
                 <span class="section-icon">🌍</span>
                 <h2>Multiverse-Core 多世界</h2>
             </div>
-            <p class="section-intro">小狼MC 推荐保留的世界：<code>world</code>(主世界) / <code>world_nether</code>(下界) / <code>world_the_end</code>(末地) / <code>world_resource</code>(资源世界，定期重置) / <code>plotworld</code>(地皮世界，由 PlotSquared 创建)。</p>
+            <p class="section-intro">小狼MC 推荐保留的世界：<code>world</code>(主世界) / <code>world_nether</code>(下界) / <code>world_the_end</code>(末地) / <code>world_resource</code>(资源世界，定期重置) / <code>AOneBlock</code> 等空岛世界（由 BentoBox 自动管理，无需手工导入到 Multiverse）。</p>
 
             <div class="admin-command-card">
                 <div class="command-name">/mv create &lt;世界名&gt; &lt;NORMAL|NETHER|END&gt;</div>
@@ -314,9 +317,9 @@ owner     →  服主，* 节点</div>
         <section id="protect" class="section admin-section">
             <div class="section-header">
                 <span class="section-icon">🛡️</span>
-                <h2>保护类（GriefPrevention / WorldGuard / PlotSquared）</h2>
+                <h2>保护类（GriefPrevention / WorldGuard）</h2>
             </div>
-            <p class="section-intro">三个保护插件分工：<strong>GriefPrevention</strong> 给玩家自助圈地，<strong>WorldGuard</strong> 由管理员定义全局规则区域，<strong>PlotSquared</strong> 提供整齐的地皮世界。三者互不冲突。</p>
+            <p class="section-intro">两个保护插件分工：<strong>GriefPrevention</strong> 给玩家在主世界自助圈地，<strong>WorldGuard</strong> 由管理员定义全局规则区域（PVP 区、安全区、禁飞区等）。空岛玩法的保护由 BentoBox 自身处理，参见下面"空岛"分区。</p>
 
             <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">GriefPrevention（玩家圈地）</h3>
             <div class="admin-command-card">
@@ -382,30 +385,91 @@ owner     →  服主，* 节点</div>
                 </ul>
             </div>
 
-            <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">PlotSquared（地皮世界）</h3>
+        </section>
+
+        <!-- BentoBox 空岛 -->
+        <section id="islands" class="section admin-section">
+            <div class="section-header">
+                <span class="section-icon">🏝️</span>
+                <h2>BentoBox + AOneBlock 空岛</h2>
+            </div>
+            <p class="section-intro"><strong>BentoBox 3.14.1</strong> 是空岛玩法的核心框架，<strong>AOneBlock 1.23.0</strong> 是它的子模式（Game Mode Addon），实现"一格方块"玩法。BentoBox 自身不带玩法，所有玩法都由 GameModeAddon 提供。</p>
+
+            <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">BentoBox 框架命令</h3>
             <div class="admin-command-card">
-                <div class="command-name">/plot setup</div>
-                <div class="command-desc">交互式创建一个地皮世界。会向导式询问地皮大小、间距、生成器等。完成后用 <code>/mv import &lt;世界名&gt; NORMAL -g PlotSquared</code> 注册到 Multiverse。</div>
+                <div class="command-name">/bentobox 或 /bbox</div>
+                <div class="command-desc">查看框架状态、版本与已加载的 Addon 列表。</div>
             </div>
             <div class="admin-command-card">
-                <div class="command-name">/plot area create / /plot area info</div>
-                <div class="command-desc">在已有世界中划出地皮区域 / 查看当前地皮区域信息。</div>
+                <div class="command-name">/bentobox version</div>
+                <div class="command-desc">查看 BentoBox 与所有 Addon 的版本号（升级前必看）。</div>
             </div>
             <div class="admin-command-card">
-                <div class="command-name">/plot reset / /plot clear</div>
-                <div class="command-desc">把脚下地皮重置为空白（玩家长时间未上线、违规建筑等情况使用）。</div>
+                <div class="command-name">/bentobox reload</div>
+                <div class="command-desc">重新加载所有 Addon 配置文件（编辑 yml 后使用，但 GameModeAddon 的 schema 改动需要 <code>/plugman reload BentoBox</code>）。</div>
             </div>
             <div class="admin-command-card">
-                <div class="command-name">/plot setowner &lt;玩家&gt;</div>
-                <div class="command-desc">把脚下地皮的所有者改为指定玩家（找回丢失的地皮、转让等）。</div>
+                <div class="command-name">/bentobox catalog</div>
+                <div class="command-desc">在线查看官方 Addon 目录（添加新玩法时用）。</div>
             </div>
             <div class="admin-command-card">
-                <div class="command-name">/plot debugexec expired-result-purge / /plot purge &lt;玩家&gt;</div>
-                <div class="command-desc">清理过期/某玩家的地皮（需要二次确认）。</div>
+                <div class="command-name">/bentobox locale &lt;语言&gt;</div>
+                <div class="command-desc">切换 BentoBox 显示语言（<code>zh-CN</code> 简体中文）。</div>
+            </div>
+
+            <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">AOneBlock 管理命令</h3>
+            <p style="color:var(--text-secondary);margin-bottom:14px;">AOneBlock 的管理命令默认前缀是 <code>/aob admin</code>（玩家用 <code>/oneblock</code>）。如果改了配置 <code>aoneblock.yml</code> 中的 <code>commands</code>，请以服务器实际为准。</p>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin</div>
+                <div class="command-desc">查看 AOneBlock 的管理子命令一览。</div>
             </div>
             <div class="admin-command-card">
-                <div class="command-name">/plot flag set &lt;标志&gt; &lt;值&gt;</div>
-                <div class="command-desc">为地皮设置标志。常用：<code>music</code>、<code>weather</code>、<code>time</code>、<code>pve true</code>、<code>fly true</code>。</div>
+                <div class="command-name">/aob admin tp &lt;玩家&gt;</div>
+                <div class="command-desc">传送到指定玩家的空岛（救援、检查违规建筑等）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin delete &lt;玩家&gt;</div>
+                <div class="command-desc"><strong>删除</strong>玩家的空岛（彻底清空，不可逆）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin reset &lt;玩家&gt;</div>
+                <div class="command-desc">重置玩家的空岛（保留账户，但岛屿恢复初始状态）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin setspawn</div>
+                <div class="command-desc">把当前位置设为空岛世界的<strong>大厅出生点</strong>（玩家未创建岛时降落于此）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin range set &lt;玩家&gt; &lt;格数&gt;</div>
+                <div class="command-desc">单独修改某玩家的空岛<strong>保护半径</strong>（默认 50，VIP 可加大）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin team add &lt;岛主&gt; &lt;玩家&gt;</div>
+                <div class="command-desc">手动把玩家加入某岛主的队伍（处理误踢/账号纠纷）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin reload</div>
+                <div class="command-desc">仅重新加载 AOneBlock 的配置（不动其他 Addon）。</div>
+            </div>
+            <div class="admin-command-card">
+                <div class="command-name">/aob admin phases</div>
+                <div class="command-desc">查看 / 调整 OneBlock 的<strong>阶段配置</strong>（草原/海洋/下界等的方块概率与触发等级）。</div>
+            </div>
+
+            <div class="info-tip">
+                <span class="tip-icon">📁</span>
+                <strong>关键文件位置：</strong>
+                <ul style="padding-left:24px;margin-top:6px;color:var(--text-secondary);">
+                    <li><code>plugins/BentoBox/config.yml</code> — 框架全局配置</li>
+                    <li><code>plugins/BentoBox/addons/AOneBlock-1.23.0.jar</code> — Addon 本体</li>
+                    <li><code>plugins/BentoBox/addons/AOneBlock/config.yml</code> — AOneBlock 配置</li>
+                    <li><code>plugins/BentoBox/addons/AOneBlock/phases/</code> — 阶段定义（YAML，可自定义）</li>
+                    <li><code>plugins/BentoBox/database/</code> — 玩家与岛屿数据（JSON / YAML / MySQL 可选）</li>
+                </ul>
+            </div>
+            <div class="info-tip">
+                <span class="tip-icon">⚠️</span>
+                <strong>升级 BentoBox / AOneBlock 注意：</strong>主版本号变化（如 3.x → 4.x）通常会改 schema，请<strong>先备份 <code>BentoBox/database/</code> 整个目录</strong>，并在测试服跑一遍。
             </div>
         </section>
 
@@ -723,7 +787,7 @@ owner     →  服主，* 节点</div>
             <h3 style="color:#fff;margin:24px 0 12px;font-size:1.15rem;">每月</h3>
             <ul style="color:var(--text-secondary);padding-left:24px;line-height:1.9;">
                 <li>清理 CoreProtect 旧日志：<code>/co purge t:60d</code>（数据库会越来越大）。</li>
-                <li>清理过期地皮：<code>/plot debugexec expired-result-purge</code>。</li>
+                <li>清理长期未上线玩家的空岛：<code>/aob admin delete &lt;玩家&gt;</code>（先 <code>/seen</code> 确认 90+ 天未上线再删）。</li>
                 <li>检查 BlueMap 渲染目录大小（<code>plugins/BlueMap/web/</code>）。</li>
                 <li>异地备份整服 <code>world*</code> 与 <code>plugins/</code>。</li>
             </ul>

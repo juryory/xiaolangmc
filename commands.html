@@ -26,7 +26,7 @@
                 <li><a href="#economy">经济</a></li>
                 <li><a href="#land-claim">圈地</a></li>
                 <li><a href="#worlds">多世界</a></li>
-                <li><a href="#plots">地皮</a></li>
+                <li><a href="#islands">空岛</a></li>
                 <li><a href="#other">其他</a></li>
                 <li><a href="#quick-ref">速查</a></li>
                 <li><a href="admin.html" class="nav-admin">🛠 管理员手册</a></li>
@@ -362,43 +362,43 @@
             </div>
         </section>
 
-        <!-- PlotSquared 地皮 -->
-        <section id="plots" class="section">
+        <!-- BentoBox 空岛 -->
+        <section id="islands" class="section">
             <div class="section-header">
-                <span class="section-icon">🏘️</span>
-                <h2>地皮世界（PlotSquared）</h2>
+                <span class="section-icon">🏝️</span>
+                <h2>空岛玩法（BentoBox + AOneBlock）</h2>
             </div>
-            <p class="section-intro">想安心建造不怕熊孩子？服务器提供了<strong>地皮世界</strong>，每人都能免费领一块地。</p>
+            <p class="section-intro">想体验<strong>从一无所有开始建设的乐趣</strong>？服务器装载了 <strong>BentoBox</strong> 框架及其 <strong>AOneBlock</strong> 子模式：从一个魔法方块出发，每挖一次随机生成新方块，慢慢扩展成属于你的空岛。</p>
 
             <div class="claim-steps">
-                <h3>领地皮的步骤</h3>
+                <h3>开启空岛的步骤</h3>
                 <div class="steps-container">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <strong>进入地皮世界</strong>
-                            <p>使用 <code>/plot auto</code> 自动传送到一块空地皮。</p>
+                            <strong>创建你的空岛</strong>
+                            <p>输入 <code>/oneblock</code>（或 <code>/is</code>），第一次会引导你<strong>选择空岛主题</strong>，确认后自动生成。</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <strong>占领地皮</strong>
-                            <p>站在空地皮中心，输入 <code>/plot claim</code> 即可占为己有。</p>
+                            <strong>挖那个魔法方块</strong>
+                            <p>不停地破坏脚下的方块，它会按阶段<strong>随机刷新</strong>新方块、生物、宝箱，资源全靠它产生。</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <strong>自由建造</strong>
-                            <p>在自己的地皮里可以随便放/拆方块，别人未经授权不能动。</p>
+                            <strong>扩建岛屿</strong>
+                            <p>在岛屿范围内自由建造，外人未经邀请不能进入或破坏。</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">4</div>
                         <div class="step-content">
                             <strong>邀请朋友</strong>
-                            <p>用 <code>/plot trust 朋友名</code> 授权朋友一起建造。</p>
+                            <p>用 <code>/is invite 朋友名</code> 拉朋友进队，一起挖方块、刷等级。</p>
                         </div>
                     </div>
                 </div>
@@ -407,74 +407,89 @@
             <div class="commands-grid">
 
                 <div class="command-card">
-                    <div class="command-name">/plot auto</div>
-                    <div class="command-desc">自动传送到一块<strong>空地皮</strong>。</div>
+                    <div class="command-name">/oneblock 或 /is</div>
+                    <div class="command-desc">打开<strong>空岛主菜单</strong>。第一次进入会创建空岛，之后再输入会传送回去。</div>
+                    <div class="command-note"><code>/is</code> 是 <code>/island</code> 的简称，BentoBox 通用。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot claim</div>
-                    <div class="command-desc"><strong>占领</strong>你脚下的这块地皮。</div>
+                    <div class="command-name">/is go</div>
+                    <div class="command-desc">直接<strong>传送回自己的空岛</strong>。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot home [编号]</div>
-                    <div class="command-desc">传送回你的地皮。</div>
+                    <div class="command-name">/is sethome [编号]</div>
+                    <div class="command-desc">在空岛上设置传送家。可设多个家方便管理大型空岛。</div>
                     <div class="command-examples">
-                        <div class="example"><code>/plot home</code><span>回到你的主地皮</span></div>
-                        <div class="example"><code>/plot home 2</code><span>回到你的第 2 块地皮</span></div>
+                        <div class="example"><code>/is sethome 农场</code><span>把农场入口设为家</span></div>
                     </div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot visit &lt;玩家名&gt;</div>
-                    <div class="command-desc">去串门，参观别人的地皮。</div>
+                    <div class="command-name">/is home [名字]</div>
+                    <div class="command-desc">传送到指定的空岛家。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot trust &lt;玩家名&gt;</div>
-                    <div class="command-desc"><strong>授权朋友</strong>进入你的地皮一起建造。</div>
+                    <div class="command-name">/is invite &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>邀请朋友</strong>加入你的空岛队伍，一起经营。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot add &lt;玩家名&gt;</div>
-                    <div class="command-desc">只允许朋友在你<strong>在线时</strong>进入操作。</div>
+                    <div class="command-name">/is accept / /is reject</div>
+                    <div class="command-desc">同意 / 拒绝别人发给你的空岛邀请。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot deny &lt;玩家名&gt;</div>
-                    <div class="command-desc"><strong>拉黑</strong>某个玩家，禁止他踏足你的地皮。</div>
+                    <div class="command-name">/is team</div>
+                    <div class="command-desc">查看自己空岛的<strong>队员列表</strong>与权限分配。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot info</div>
-                    <div class="command-desc">查看脚下地皮的<strong>详细信息</strong>。</div>
+                    <div class="command-name">/is kick &lt;玩家名&gt;</div>
+                    <div class="command-desc">把<strong>队员</strong>移出你的空岛。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot set biome &lt;生态&gt;</div>
-                    <div class="command-desc">改变自己地皮的<strong>生物群系</strong>。</div>
+                    <div class="command-name">/is leave</div>
+                    <div class="command-desc"><strong>离开</strong>当前空岛队伍（队员用，不是岛主）。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot delete</div>
-                    <div class="command-desc"><strong>放弃</strong>当前地皮（谨慎使用！）。</div>
+                    <div class="command-name">/is settings</div>
+                    <div class="command-desc">打开 GUI 设置面板：<strong>访客权限、PVP、动物刷新、传送门</strong>等都可勾选。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot list mine</div>
-                    <div class="command-desc">查看自己<strong>拥有的所有地皮</strong>。</div>
+                    <div class="command-name">/is level</div>
+                    <div class="command-desc">查看自己空岛的<strong>等级</strong>（按方块价值计算）。</div>
                 </div>
 
                 <div class="command-card">
-                    <div class="command-name">/plot middle</div>
-                    <div class="command-desc">传送到当前地皮的<strong>正中心</strong>。</div>
+                    <div class="command-name">/is top</div>
+                    <div class="command-desc">查看服务器<strong>空岛排行榜</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is reset</div>
+                    <div class="command-desc"><strong>重置自己的空岛</strong>，从头开始。次数有限，谨慎使用！</div>
+                    <div class="command-note">岛上的物品会全部丢失，重置前请先把贵重物品打包带走。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is ban &lt;玩家&gt; / /is unban &lt;玩家&gt;</div>
+                    <div class="command-desc">把指定玩家<strong>拉黑 / 解禁</strong>，禁止他踏足你的空岛。</div>
                 </div>
 
             </div>
 
             <div class="info-tip">
                 <span class="tip-icon">💡</span>
-                <strong>圈地（GriefPrevention）</strong> vs <strong>地皮（PlotSquared）</strong>：圈地在主世界里任意位置用金铲子圈，地皮则是专门的地皮世界，大小固定、边界整齐，适合喜欢房子党风格的玩家。
+                <strong>圈地</strong> vs <strong>空岛</strong>：圈地在主世界里用金铲子保护已有建筑；空岛是<strong>独立的虚空世界</strong>，每人一个独立空间，更适合一格方块（OneBlock）这种"从零开始"的玩法。
+            </div>
+            <div class="info-tip">
+                <span class="tip-icon">🎮</span>
+                <strong>AOneBlock 玩法核心：</strong>那块"魔法方块"会按阶段（草原 → 海洋 → 下界 → 末地……）刷出不同的方块和怪物，关注 <code>/is</code> 菜单里的"阶段进度"了解下一阶段。
             </div>
         </section>
 
@@ -561,9 +576,10 @@
                         <tr><td>把手上的物品戴头上</td><td><code>/hat</code></td></tr>
                         <tr><td>看延迟卡不卡</td><td><code>/ping</code></td></tr>
                         <tr><td>查看所有可去的世界</td><td><code>/mv list</code></td></tr>
-                        <tr><td>去领一块地皮</td><td><code>/plot auto</code> → <code>/plot claim</code></td></tr>
-                        <tr><td>回自己的地皮</td><td><code>/plot home</code></td></tr>
-                        <tr><td>串门看朋友地皮</td><td><code>/plot visit 朋友名</code></td></tr>
+                        <tr><td>开一个空岛</td><td><code>/oneblock</code> 或 <code>/is</code></td></tr>
+                        <tr><td>回自己的空岛</td><td><code>/is go</code></td></tr>
+                        <tr><td>叫朋友一起玩空岛</td><td><code>/is invite 朋友名</code></td></tr>
+                        <tr><td>看空岛排行榜</td><td><code>/is top</code></td></tr>
                         <tr><td>不进游戏看地图</td><td>访问 <code>mc.udfj.top:8100</code></td></tr>
                     </tbody>
                 </table>
