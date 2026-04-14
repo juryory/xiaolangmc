@@ -19,33 +19,53 @@
 
 ```
 xiaolangmc/
-├── index.html        # 首页：英雄区 + 服务特色 + 入口卡 + 新人必读
-├── commands.html     # 玩家命令大全（家、传送、互动、经济、圈地、多世界、空岛、其他、速查、注意）
-├── admin.html        # 管理员手册（图形化版本）
-├── ADMIN.md          # 管理员手册（Markdown 版本，与 admin.html 内容同步）
+├── index.html                   # 首页：英雄区 + 服务特色 + 入口卡 + 新人必读
+├── install.html                 # 新人安装教程（图文版）
+├── commands.html                # 玩家命令大全
+├── admin.html                   # 管理员手册（图形化版本）
+├── INSTALL.md                   # 新人安装教程（Markdown 版）
+├── ADMIN.md                     # 管理员手册（Markdown 版）
 ├── css/
-│   └── style.css     # 全局样式（被三个 HTML 共用）
+│   └── style.css                # 全局样式（被四个 HTML 共用）
 ├── js/
-│   └── main.js       # 全局交互（粒子、导航、滚动高亮、复制等）
-└── README.md         # 本文档
+│   └── main.js                  # 全局交互（粒子、导航、滚动高亮、复制等）
+├── images/
+│   └── install/                 # 安装教程用的 19 张截图
+├── scripts/
+│   └── download-install-images.sh  # 一键从图床下载全部安装截图
+└── README.md                    # 本文档
 ```
 
-> 历史变迁：原本所有玩家命令都在 `index.html`，后拆出 `commands.html` 让首页轻量化。管理员手册作为新增内容，单独成页。
+> 历史变迁：原本所有玩家命令都在 `index.html`，后拆出 `commands.html` 让首页轻量化。之后加入了管理员手册（`admin.html` / `ADMIN.md`）与新人安装教程（`install.html` / `INSTALL.md`）。所有页面共享同一套样式表。
 
 ---
 
-## 三个页面的职责
+## 四个页面的职责
 
 ### 1. `index.html` — 首页 / 总览
 
 | 区块 | 说明 |
 |------|------|
-| 顶部导航 | 服务特色 / 玩家手册 / 命令大全 / 3D 地图 / 管理员手册 |
+| 顶部导航 | 服务特色 / 玩家手册 / 新人安装 / 命令大全 / 3D 地图 / 管理员手册 |
 | 英雄区 | 服务器名 + 地址（点击复制） + BlueMap 链接 + 两个 CTA 按钮 |
 | `#features` 服务特色 | 12 张卡片，介绍 18 个核心插件提供的能力 |
-| `#entries` 从这里开始 | 6 张大卡片，跳转到 commands.html 各分区或外链 |
+| `#entries` 从这里开始 | 7 张大卡片，覆盖新人安装、玩家命令、圈地、空岛、速查、3D 地图、管理员手册 |
 | 新人必读 | 4 条最重要的注意事项 |
-| 页脚 | 玩家命令 / 地图 / 管理员手册 / 复制服务器地址 |
+| 页脚 | 安装 / 玩家命令 / 地图 / 管理员手册 / 复制服务器地址 |
+
+### 1b. `install.html` / `INSTALL.md` — 新人安装教程
+
+图文教程，面向零基础玩家，10 分钟完成入服流程。
+
+| 分区 ID | 标题 | 内容 |
+|---------|------|------|
+| `#env` | 一、环境配置 | 安装 Microsoft JDK 25 + 打开 HMCL 启动器 |
+| `#game` | 二、游戏安装 | 在 HMCL 里搜索版本 `1.21.11` 并安装 |
+| `#account` | 三、创建账户 | 离线模式 / LittleSkin 二选一 |
+| `#login` | 四、登录游戏 | 添加服务器 `mc.udfj.top` 并双击进服 |
+| `#after` | 进服之后 | 6 条新人建议（规则、圈地、空岛、地图等） |
+
+教程引用 `images/install/` 中的 19 张截图（由 `scripts/download-install-images.sh` 下载）。
 
 ### 2. `commands.html` — 玩家命令大全
 
@@ -106,6 +126,20 @@ xiaolangmc/
 | PlugManX | 插件热重载 |
 
 详细版本见 [`ADMIN.md`](./ADMIN.md#1-插件清单与版本)。
+
+---
+
+## 安装教程截图
+
+`install.html` 与 `INSTALL.md` 引用了 `images/install/` 下的 19 张截图。克隆仓库后若该目录为空，执行：
+
+```bash
+bash scripts/download-install-images.sh
+```
+
+脚本会从原图床拉取所有图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`）。已有的文件会被跳过。
+
+> 如果以后要替换/新增步骤截图：把新图按上面的命名规则放进 `images/install/`，在 `install.html` 和 `INSTALL.md` 里添加或替换 `<figure class="install-shot">` / `![](...)` 即可，不需要改 `scripts/download-install-images.sh`。
 
 ---
 

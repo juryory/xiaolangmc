@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新人安装教程 - 小狼MC服务器</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🐺</span>
+                <span class="logo-text">小狼MC</span>
+            </a>
+            <button class="nav-toggle" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#env">环境配置</a></li>
+                <li><a href="#game">游戏安装</a></li>
+                <li><a href="#account">创建账户</a></li>
+                <li><a href="#login">登录游戏</a></li>
+                <li><a href="commands.html">📖 命令大全</a></li>
+                <li><a href="index.html" class="nav-admin">← 返回首页</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头 -->
+    <header class="hero page-header">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">新人安装教程</span>
+                <span class="title-sub">10 分钟从零开始，加入小狼MC</span>
+            </h1>
+            <p class="hero-desc">按照下面四步操作即可进服。如果你之前没玩过 Minecraft 也不用担心，每一步都配了截图。</p>
+            <div class="server-info">
+                <div class="server-info-item">
+                    <span class="server-info-label">🎮 服务器地址</span>
+                    <code class="server-info-value" data-copy="mc.udfj.top">mc.udfj.top</code>
+                </div>
+                <div class="server-info-item">
+                    <span class="server-info-label">☕ 游戏版本</span>
+                    <code class="server-info-value">1.21.11</code>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#env" class="hero-btn">开始安装</a>
+                <a href="INSTALL.md" class="hero-btn hero-btn-ghost">📄 Markdown 版</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <!-- 一、环境配置 -->
+        <section id="env" class="section">
+            <div class="section-header">
+                <span class="section-icon">⚙️</span>
+                <h2>一、环境配置</h2>
+            </div>
+            <p class="section-intro">Minecraft 需要 Java 运行环境。小狼MC 提供的整合包里已经包含了 <strong>Microsoft JDK 25</strong> 和 <strong>HMCL 启动器</strong>，按顺序装即可。</p>
+
+            <div class="install-steps">
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">1</div>
+                        <div class="step-title">双击安装 JDK</div>
+                    </div>
+                    <p>双击 <code>01-先安装我-microsoft-jdk-25-windows-x64.msi</code> 开始安装前置环境。</p>
+                    <figure class="install-shot">
+                        <img src="images/install/01-install-jdk.png" alt="双击安装 JDK" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">2</div>
+                        <div class="step-title">一直下一步完成安装</div>
+                    </div>
+                    <p>一路点 <strong>Next</strong> 直到显示 <em>Completed</em>。</p>
+                    <figure class="install-shot">
+                        <img src="images/install/02-jdk-finish.png" alt="完成 JDK 安装" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">3</div>
+                        <div class="step-title">打开 HMCL 启动器</div>
+                    </div>
+                    <p>安装完 JDK 后，双击 <code>02-再运行我-HMCL-3.12.2.exe</code> 打开启动器。</p>
+                    <figure class="install-shot">
+                        <img src="images/install/03-open-hmcl.png" alt="打开 HMCL" loading="lazy">
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 二、游戏安装 -->
+        <section id="game" class="section">
+            <div class="section-header">
+                <span class="section-icon">🎮</span>
+                <h2>二、游戏安装</h2>
+            </div>
+            <p class="section-intro">小狼MC 当前服务器版本是 <strong>1.21.11</strong>，请务必选择同一版本，版本不对会连不进服。</p>
+
+            <div class="install-steps">
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">1</div>
+                        <div class="step-title">点击"创建游戏实例"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/04-create-instance.png" alt="创建游戏实例" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">2</div>
+                        <div class="step-title">点击"安装新游戏"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/05-install-new.png" alt="安装新游戏" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">3</div>
+                        <div class="step-title">搜索游戏版本 <code>1.21.11</code></div>
+                    </div>
+                    <p>在版本搜索框里输入 <code>1.21.11</code>，会自动过滤出对应版本。</p>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">4</div>
+                        <div class="step-title">点击"前往安装"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/06-goto-install.png" alt="前往安装" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">5</div>
+                        <div class="step-title">点击"安装"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/07-click-install.png" alt="点击安装" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">6</div>
+                        <div class="step-title">等待安装完成</div>
+                    </div>
+                    <p>首次安装会下载游戏资源，耐心等待进度条走完即可（国内网络通常 3~8 分钟）。</p>
+                    <figure class="install-shot">
+                        <img src="images/install/08-waiting.png" alt="等待安装完成" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">7</div>
+                        <div class="step-title">安装完成后点击"确定"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/09-confirm.png" alt="确定完成" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">8</div>
+                        <div class="step-title">回到主页</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/10-back-home.png" alt="回到主页" loading="lazy">
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 三、创建账户 -->
+        <section id="account" class="section">
+            <div class="section-header">
+                <span class="section-icon">👤</span>
+                <h2>三、创建账户</h2>
+            </div>
+
+            <div class="info-tip">
+                <span class="tip-icon">⚠️</span>
+                <strong>离线模式账户不安全，容易被别人冒用。</strong>如果在意账号安全（尤其是社交服），推荐去
+                <a href="https://littleskin.cn/auth/register" target="_blank" rel="noopener">LittleSkin</a>
+                站点注册一个皮肤站账号，用它登录 HMCL 更安全。
+            </div>
+
+            <div class="install-steps">
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">1</div>
+                        <div class="step-title">点击"创建账户"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/11-create-account.png" alt="创建账户" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">2</div>
+                        <div class="step-title">选择"离线模式"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/12-offline-mode.png" alt="选择离线模式" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">3</div>
+                        <div class="step-title">输入用户名</div>
+                    </div>
+                    <p>用户名推荐使用 <strong>英文 / 数字</strong>，3~16 位，避免中文和空格，否则进服容易出问题。</p>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">4</div>
+                        <div class="step-title">点击"登录"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/13-enter-name.png" alt="输入用户名并登录" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">5</div>
+                        <div class="step-title">点击"返回"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/14-back.png" alt="返回" loading="lazy">
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 四、登录游戏 -->
+        <section id="login" class="section">
+            <div class="section-header">
+                <span class="section-icon">🌐</span>
+                <h2>四、登录游戏</h2>
+            </div>
+            <p class="section-intro">把小狼MC 加到多人游戏列表里，以后进服就只需要双击即可。</p>
+
+            <div class="install-steps">
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">1</div>
+                        <div class="step-title">点击"启动游戏"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/15-launch-game.png" alt="启动游戏" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">2</div>
+                        <div class="step-title">点击"多人游戏"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/16-multiplayer.png" alt="多人游戏" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">3</div>
+                        <div class="step-title">点击"添加服务器"</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/17-add-server.png" alt="添加服务器" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">4</div>
+                        <div class="step-title">填写服务器信息</div>
+                    </div>
+                    <ul style="color:var(--text-secondary);padding-left:24px;line-height:1.9;margin:8px 0;">
+                        <li>服务器名称：<code>小狼MC</code></li>
+                        <li>服务器地址：<code data-copy="mc.udfj.top">mc.udfj.top</code>（点击可复制）</li>
+                    </ul>
+                    <p>填完点击"完成"。</p>
+                    <figure class="install-shot">
+                        <img src="images/install/18-server-info.png" alt="填写服务器信息" loading="lazy">
+                    </figure>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-head">
+                        <div class="step-number">5</div>
+                        <div class="step-title">双击加入游戏</div>
+                    </div>
+                    <figure class="install-shot">
+                        <img src="images/install/19-join.png" alt="双击加入游戏" loading="lazy">
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 进服之后 -->
+        <section id="after" class="section warnings-section">
+            <div class="section-header">
+                <span class="section-icon">🎉</span>
+                <h2>进服之后</h2>
+            </div>
+            <p class="section-intro">恭喜你顺利加入小狼MC！第一次进服建议按下面的顺序走一遍。</p>
+            <div class="warnings-grid">
+                <div class="warning-card">
+                    <div class="warning-number">1</div>
+                    <div class="warning-text">输入 <code>/rules</code> 查看<strong>服务器规则</strong>，避免误触违规。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">2</div>
+                    <div class="warning-text">进入 <a href="commands.html">玩家命令大全</a>，熟悉 <code>/home</code> <code>/tpa</code> 等基础命令。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">3</div>
+                    <div class="warning-text">建好家后<strong>立刻圈地</strong>：手持金铲左键一个角、右键对角，详见
+                        <a href="commands.html#land-claim">圈地教程</a>。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">4</div>
+                    <div class="warning-text">想单人挑战？输入 <code>/oneblock</code> 或 <code>/is</code> 开启<strong>空岛玩法</strong>。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">5</div>
+                    <div class="warning-text">遇到问题：群里 @管理员，或游戏里 <code>/msg 管理员名 内容</code>。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">6</div>
+                    <div class="warning-text">想不打开游戏看看世界长啥样？访问
+                        <a href="http://mc.udfj.top:8100" target="_blank" rel="noopener">mc.udfj.top:8100</a> 的 3D 地图。</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>🐺 小狼MC服务器 &mdash; 欢迎新朋友！</p>
+            <p class="footer-links">
+                <a href="index.html">← 返回首页</a>
+                <span class="footer-sep">·</span>
+                <a href="commands.html">📖 玩家命令大全</a>
+                <span class="footer-sep">·</span>
+                <a href="INSTALL.md">📄 Markdown 版本</a>
+                <span class="footer-sep">·</span>
+                <a href="#" data-copy="mc.udfj.top">📋 复制服务器地址</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
