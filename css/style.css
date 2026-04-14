@@ -986,6 +986,75 @@ a.entry-card.entry-card-admin::before {
     font-size: 0.88em;
 }
 
+/* ===== 安装教程步骤卡 ===== */
+.install-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.install-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    transition: border-color var(--transition);
+}
+
+.install-step:hover {
+    border-color: rgba(74, 222, 128, 0.2);
+}
+
+.install-step .step-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.install-step .step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-weight: 800;
+    border-radius: 50%;
+}
+
+.install-step .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.install-step p,
+.install-step ul {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.install-shot {
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--code-bg);
+}
+
+.install-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 /* ===== 响应式 ===== */
 @media (max-width: 768px) {
     .nav-toggle {
