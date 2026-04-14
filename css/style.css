@@ -1051,7 +1051,7 @@ a.entry-card.entry-card-admin::before {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
 }
 

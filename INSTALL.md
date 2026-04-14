@@ -142,4 +142,16 @@ powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
 bash scripts/download-install-images.sh
 ```
 
-两个脚本功能相同，会自动从图床拉取全部 19 张图并按步骤命名保存。已存在的文件会被跳过。
+两个脚本功能相同，会自动从图床拉取全部 19 张图并按步骤命名保存，下载完**自动压缩到最大宽度 1200px**。已存在的文件会被跳过。
+
+如果图片已经下好只想压缩，单独跑：
+
+```powershell
+# Windows PowerShell（无需外部依赖）
+powershell -ExecutionPolicy Bypass -File scripts\optimize-install-images.ps1
+```
+
+```bash
+# Linux / macOS（需要 ImageMagick 或 Pillow）
+bash scripts/optimize-install-images.sh
+```
