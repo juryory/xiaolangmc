@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玩家命令大全 - 小狼MC服务器</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🐺</span>
+                <span class="logo-text">小狼MC</span>
+            </a>
+            <button class="nav-toggle" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home-teleport">家与传送</a></li>
+                <li><a href="#player-interact">玩家互动</a></li>
+                <li><a href="#economy">经济</a></li>
+                <li><a href="#land-claim">圈地</a></li>
+                <li><a href="#worlds">多世界</a></li>
+                <li><a href="#islands">空岛</a></li>
+                <li><a href="#other">其他</a></li>
+                <li><a href="#quick-ref">速查</a></li>
+                <li><a href="admin.html" class="nav-admin">🛠 管理员手册</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头 -->
+    <header class="hero page-header">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">玩家命令大全</span>
+                <span class="title-sub">所有可用命令、用法示例与速查表</span>
+            </h1>
+            <p class="hero-desc">命令前面记得加 <code>/</code>。不熟悉的命令可以先在大厅试用，遇到问题随时 @管理员。</p>
+            <div class="hero-actions">
+                <a href="#home-teleport" class="hero-btn">开始查看</a>
+                <a href="index.html" class="hero-btn hero-btn-ghost">← 返回首页</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <!-- 家与传送 -->
+        <section id="home-teleport" class="section">
+            <div class="section-header">
+                <span class="section-icon">🏠</span>
+                <h2>家与传送</h2>
+            </div>
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/sethome [名字]</div>
+                    <div class="command-desc">把当前位置设为"家"。下次可以一键传送回来。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/sethome</code><span>设置默认的家</span></div>
+                        <div class="example"><code>/sethome 矿洞</code><span>设置一个叫"矿洞"的家</span></div>
+                    </div>
+                    <div class="command-note">默认每人最多可以设置 <strong>3 个家</strong></div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/home [名字]</div>
+                    <div class="command-desc">传送回你设置的家。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/home</code><span>回到默认的家</span></div>
+                        <div class="example"><code>/home 矿洞</code><span>回到名字叫"矿洞"的家</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/delhome &lt;名字&gt;</div>
+                    <div class="command-desc">删除一个家，腾出位置设新的。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/delhome 矿洞</code><span>删除名字叫"矿洞"的家</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/spawn</div>
+                    <div class="command-desc">传送回服务器的出生点（新手村 / 主城）。迷路了用这个最快。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/back</div>
+                    <div class="command-desc">回到你<strong>上一次死亡或传送前</strong>的位置。死了想回去捡东西就用这个。</div>
+                    <div class="command-note">服务器开启了死亡不掉落，但 <code>/back</code> 在迷路的时候也很好用</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/warp [名字]</div>
+                    <div class="command-desc">传送到服务器设置的公共地点（比如商店、副本入口）。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/warp</code> 或 <code>/warp list</code><span>查看所有可用的传送点</span></div>
+                        <div class="example"><code>/warp 商店</code><span>传送到名字叫"商店"的地点</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 玩家互动 -->
+        <section id="player-interact" class="section">
+            <div class="section-header">
+                <span class="section-icon">👥</span>
+                <h2>玩家互动</h2>
+            </div>
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/tpa &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>请求传送到对方那里</strong>。对方需要同意才会传送。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/tpa Steve</code><span>向 Steve 发送传送请求</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/tpahere &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>请求把对方传送到你这里</strong>。对方需要同意。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/tpahere Alex</code><span>让 Alex 来你这</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/tpaccept</div>
+                    <div class="command-desc"><strong>同意</strong>别人发给你的传送请求。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/tpdeny</div>
+                    <div class="command-desc"><strong>拒绝</strong>别人的传送请求。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/msg &lt;玩家名&gt; &lt;消息&gt;</div>
+                    <div class="command-desc">给某个玩家发<strong>私聊消息</strong>，其他人看不到。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/msg Steve 你在哪？</code><span>私聊 Steve</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/r &lt;消息&gt;</div>
+                    <div class="command-desc"><strong>快速回复</strong>最后一个给你私聊的人，不用再打名字。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/list</div>
+                    <div class="command-desc">查看当前服务器<strong>在线的所有玩家</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/afk</div>
+                    <div class="command-desc">标记自己为"暂离"状态。再输一次取消。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/mail send/read/clear</div>
+                    <div class="command-desc">给离线玩家留<strong>站内信</strong>。对方下次上线就能看到。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/mail send Steve 我在主城等你</code><span>给 Steve 留言</span></div>
+                        <div class="example"><code>/mail read</code><span>查看自己收到的信</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/seen &lt;玩家名&gt;</div>
+                    <div class="command-desc">查看某个玩家<strong>最后一次上线</strong>是什么时候。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/ignore &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>屏蔽某个玩家</strong>的聊天和私聊。再输一次取消屏蔽。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/hat</div>
+                    <div class="command-desc">把手上拿的物品<strong>戴在头上</strong>，可以做装饰。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/me &lt;动作&gt;</div>
+                    <div class="command-desc">用第三人称在公屏说一句话。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/me 在挖矿</code><span>大家会看到"* 你的名字 在挖矿"</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 经济 -->
+        <section id="economy" class="section">
+            <div class="section-header">
+                <span class="section-icon">💰</span>
+                <h2>经济</h2>
+            </div>
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/balance 或 /bal</div>
+                    <div class="command-desc">查看自己<strong>当前的钱</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/pay &lt;玩家名&gt; &lt;金额&gt;</div>
+                    <div class="command-desc"><strong>转账</strong>给其他玩家。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/pay Steve 100</code><span>给 Steve 转 100 块</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/balancetop 或 /baltop</div>
+                    <div class="command-desc">查看服务器<strong>富豪排行榜</strong>。</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 圈地保护 -->
+        <section id="land-claim" class="section">
+            <div class="section-header">
+                <span class="section-icon">🛡️</span>
+                <h2>圈地保护（GriefPrevention）</h2>
+            </div>
+            <p class="section-intro">为了防止别人破坏你的建筑，请务必圈地保护！</p>
+
+            <div class="claim-steps">
+                <h3>圈地步骤</h3>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>获取金铲</strong>
+                            <p>使用 <code>/kit claim</code> 或手持金铲。新玩家加入会得到一把金铲子（圈地工具）。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>选择第一个角</strong>
+                            <p>手持金铲，<strong>左键点击</strong>地面的一个角。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>选择对角</strong>
+                            <p>走到对角的位置，<strong>右键点击</strong>地面。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>完成圈地</strong>
+                            <p>系统会自动在你点击的两个角之间画出一个矩形保护区。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/abandonclaim</div>
+                    <div class="command-desc">放弃当前所在位置的圈地，把保护额度还给自己。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/trust &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>信任</strong>某个玩家，让他可以在你的圈地里放/破坏方块。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/untrust &lt;玩家名&gt;</div>
+                    <div class="command-desc">取消对某个玩家的信任。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/claimslist</div>
+                    <div class="command-desc">查看自己<strong>所有的圈地</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/containertrust &lt;玩家名&gt;</div>
+                    <div class="command-desc">只允许对方<strong>开箱子、用炉子</strong>，不能拆方块。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/accesstrust &lt;玩家名&gt;</div>
+                    <div class="command-desc">只允许对方<strong>开门、按按钮、踩压力板</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/permissiontrust &lt;玩家名&gt;</div>
+                    <div class="command-desc">允许对方<strong>给别人授权</strong>（小心使用）。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/subdivideclaim</div>
+                    <div class="command-desc">在大圈地里<strong>切出小区域</strong>给特定玩家管理。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/claimexplosions</div>
+                    <div class="command-desc">在自己的圈地里切换是否允许爬行者爆炸。</div>
+                </div>
+
+            </div>
+
+            <div class="info-tip">
+                <span class="tip-icon">💡</span>
+                每个新玩家初始有一定的圈地额度（约 100 方块），<strong>每在线 1 小时自动增加</strong>。
+            </div>
+            <div class="info-tip">
+                <span class="tip-icon">🔍</span>
+                想<strong>查看自己脚下的圈地范围</strong>？手持木棍右键地面即可显示该圈地的边界。
+            </div>
+        </section>
+
+        <!-- 多世界 -->
+        <section id="worlds" class="section">
+            <div class="section-header">
+                <span class="section-icon">🌍</span>
+                <h2>多世界</h2>
+            </div>
+            <p class="section-intro">服务器使用 <strong>Multiverse-Core</strong> 同时运行多个世界。</p>
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/mv list</div>
+                    <div class="command-desc">查看服务器上<strong>所有可去的世界</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/mvtp &lt;世界名&gt;</div>
+                    <div class="command-desc">传送到指定世界（需要权限）。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/mvtp world_resource</code><span>去资源世界采集（定期重置）</span></div>
+                    </div>
+                    <div class="command-note">普通玩家通常通过<strong>传送点</strong>（<code>/warp</code>）或<strong>主城传送门</strong>进入其他世界。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">BlueMap 网页地图</div>
+                    <div class="command-desc">不进游戏也能看世界全貌！打开 <a href="http://mc.udfj.top:8100" target="_blank" rel="noopener">mc.udfj.top:8100</a>。</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BentoBox 空岛 -->
+        <section id="islands" class="section">
+            <div class="section-header">
+                <span class="section-icon">🏝️</span>
+                <h2>空岛玩法（BentoBox + AOneBlock）</h2>
+            </div>
+            <p class="section-intro">想体验<strong>从一无所有开始建设的乐趣</strong>？服务器装载了 <strong>BentoBox</strong> 框架及其 <strong>AOneBlock</strong> 子模式：从一个魔法方块出发，每挖一次随机生成新方块，慢慢扩展成属于你的空岛。</p>
+
+            <div class="claim-steps">
+                <h3>开启空岛的步骤</h3>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>创建你的空岛</strong>
+                            <p>输入 <code>/oneblock</code>（或 <code>/is</code>），第一次会引导你<strong>选择空岛主题</strong>，确认后自动生成。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>挖那个魔法方块</strong>
+                            <p>不停地破坏脚下的方块，它会按阶段<strong>随机刷新</strong>新方块、生物、宝箱，资源全靠它产生。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>扩建岛屿</strong>
+                            <p>在岛屿范围内自由建造，外人未经邀请不能进入或破坏。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>邀请朋友</strong>
+                            <p>用 <code>/is invite 朋友名</code> 拉朋友进队，一起挖方块、刷等级。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/oneblock 或 /is</div>
+                    <div class="command-desc">打开<strong>空岛主菜单</strong>。第一次进入会创建空岛，之后再输入会传送回去。</div>
+                    <div class="command-note"><code>/is</code> 是 <code>/island</code> 的简称，BentoBox 通用。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is go</div>
+                    <div class="command-desc">直接<strong>传送回自己的空岛</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is sethome [编号]</div>
+                    <div class="command-desc">在空岛上设置传送家。可设多个家方便管理大型空岛。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/is sethome 农场</code><span>把农场入口设为家</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is home [名字]</div>
+                    <div class="command-desc">传送到指定的空岛家。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is invite &lt;玩家名&gt;</div>
+                    <div class="command-desc"><strong>邀请朋友</strong>加入你的空岛队伍，一起经营。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is accept / /is reject</div>
+                    <div class="command-desc">同意 / 拒绝别人发给你的空岛邀请。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is team</div>
+                    <div class="command-desc">查看自己空岛的<strong>队员列表</strong>与权限分配。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is kick &lt;玩家名&gt;</div>
+                    <div class="command-desc">把<strong>队员</strong>移出你的空岛。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is leave</div>
+                    <div class="command-desc"><strong>离开</strong>当前空岛队伍（队员用，不是岛主）。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is settings</div>
+                    <div class="command-desc">打开 GUI 设置面板：<strong>访客权限、PVP、动物刷新、传送门</strong>等都可勾选。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is level</div>
+                    <div class="command-desc">查看自己空岛的<strong>等级</strong>（按方块价值计算）。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is top</div>
+                    <div class="command-desc">查看服务器<strong>空岛排行榜</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is reset</div>
+                    <div class="command-desc"><strong>重置自己的空岛</strong>，从头开始。次数有限，谨慎使用！</div>
+                    <div class="command-note">岛上的物品会全部丢失，重置前请先把贵重物品打包带走。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/is ban &lt;玩家&gt; / /is unban &lt;玩家&gt;</div>
+                    <div class="command-desc">把指定玩家<strong>拉黑 / 解禁</strong>，禁止他踏足你的空岛。</div>
+                </div>
+
+            </div>
+
+            <div class="info-tip">
+                <span class="tip-icon">💡</span>
+                <strong>圈地</strong> vs <strong>空岛</strong>：圈地在主世界里用金铲子保护已有建筑；空岛是<strong>独立的虚空世界</strong>，每人一个独立空间，更适合一格方块（OneBlock）这种"从零开始"的玩法。
+            </div>
+            <div class="info-tip">
+                <span class="tip-icon">🎮</span>
+                <strong>AOneBlock 玩法核心：</strong>那块"魔法方块"会按阶段（草原 → 海洋 → 下界 → 末地……）刷出不同的方块和怪物，关注 <code>/is</code> 菜单里的"阶段进度"了解下一阶段。
+            </div>
+        </section>
+
+        <!-- 其他实用命令 -->
+        <section id="other" class="section">
+            <div class="section-header">
+                <span class="section-icon">ℹ️</span>
+                <h2>其他实用命令</h2>
+            </div>
+            <div class="commands-grid">
+
+                <div class="command-card">
+                    <div class="command-name">/help</div>
+                    <div class="command-desc">查看所有可用命令的列表。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/rules</div>
+                    <div class="command-desc">查看<strong>服务器规则</strong>。新人请务必先看一遍。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/motd</div>
+                    <div class="command-desc">重新查看进服时显示的<strong>欢迎信息</strong>。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/kit [名字]</div>
+                    <div class="command-desc">领取服务器配置好的<strong>礼包</strong>。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/kit</code><span>查看自己可领取的礼包列表</span></div>
+                        <div class="example"><code>/kit starter</code><span>领取新手礼包</span></div>
+                    </div>
+                    <div class="command-note">每个礼包可能有<strong>冷却时间</strong>，到时间后才能再次领取。</div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/menu open &lt;菜单名&gt;</div>
+                    <div class="command-desc">打开 <strong>DeluxeMenus</strong> 提供的图形菜单（不用记命令）。</div>
+                    <div class="command-examples">
+                        <div class="example"><code>/menu open main</code><span>打开主菜单</span></div>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-name">/ping</div>
+                    <div class="command-desc">查看自己<strong>到服务器的延迟</strong>。</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 速查表 -->
+        <section id="quick-ref" class="section">
+            <div class="section-header">
+                <span class="section-icon">📋</span>
+                <h2>常见场景速查</h2>
+            </div>
+            <div class="quick-ref-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>我想...</th>
+                            <th>用这个命令</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>回家</td><td><code>/home</code></td></tr>
+                        <tr><td>回主城</td><td><code>/spawn</code></td></tr>
+                        <tr><td>把当前位置设为家</td><td><code>/sethome</code></td></tr>
+                        <tr><td>找朋友玩</td><td><code>/tpa 朋友名</code></td></tr>
+                        <tr><td>让朋友来找我</td><td><code>/tpahere 朋友名</code></td></tr>
+                        <tr><td>私聊朋友</td><td><code>/msg 朋友名 内容</code></td></tr>
+                        <tr><td>看谁在线</td><td><code>/list</code></td></tr>
+                        <tr><td>查看自己的钱</td><td><code>/bal</code></td></tr>
+                        <tr><td>给朋友转钱</td><td><code>/pay 朋友名 金额</code></td></tr>
+                        <tr><td>保护我的家</td><td>手持金铲，左右键点对角</td></tr>
+                        <tr><td>让朋友进我家不被拦</td><td><code>/trust 朋友名</code></td></tr>
+                        <tr><td>死了想回原地</td><td><code>/back</code></td></tr>
+                        <tr><td>暂时离开电脑</td><td><code>/afk</code></td></tr>
+                        <tr><td>给离线朋友留信</td><td><code>/mail send 朋友名 内容</code></td></tr>
+                        <tr><td>看朋友最近啥时候来过</td><td><code>/seen 朋友名</code></td></tr>
+                        <tr><td>领新手 / 福利礼包</td><td><code>/kit</code></td></tr>
+                        <tr><td>把手上的物品戴头上</td><td><code>/hat</code></td></tr>
+                        <tr><td>看延迟卡不卡</td><td><code>/ping</code></td></tr>
+                        <tr><td>查看所有可去的世界</td><td><code>/mv list</code></td></tr>
+                        <tr><td>开一个空岛</td><td><code>/oneblock</code> 或 <code>/is</code></td></tr>
+                        <tr><td>回自己的空岛</td><td><code>/is go</code></td></tr>
+                        <tr><td>叫朋友一起玩空岛</td><td><code>/is invite 朋友名</code></td></tr>
+                        <tr><td>看空岛排行榜</td><td><code>/is top</code></td></tr>
+                        <tr><td>不进游戏看地图</td><td>访问 <code>mc.udfj.top:8100</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section id="warnings" class="section warnings-section">
+            <div class="section-header">
+                <span class="section-icon">⚠️</span>
+                <h2>注意事项</h2>
+            </div>
+            <div class="warnings-grid">
+                <div class="warning-card">
+                    <div class="warning-number">1</div>
+                    <div class="warning-text"><strong>圈地保护非常重要</strong>！没圈地的建筑，别人可以随便拆。建好家第一件事就是圈地。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">2</div>
+                    <div class="warning-text"><strong>传送请求 60 秒内有效</strong>，超时自动失效。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">3</div>
+                    <div class="warning-text"><strong>被传送时不要移动</strong>，否则会取消。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">4</div>
+                    <div class="warning-text">有问题随时在群里 @管理员，或在游戏里用 <code>/msg 管理员名 内容</code> 私聊。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">5</div>
+                    <div class="warning-text"><strong>所有方块操作都有记录</strong>（CoreProtect 全程录制），偷盗、破坏、作弊都能被回滚并溯源。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">6</div>
+                    <div class="warning-text">资源世界<strong>会定期重置</strong>，请把贵重物品放在主世界的圈地内。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">7</div>
+                    <div class="warning-text">服务器<strong>禁止使用作弊客户端</strong>（小地图除外），违者直接封禁。</div>
+                </div>
+                <div class="warning-card">
+                    <div class="warning-number">8</div>
+                    <div class="warning-text">遇到 BUG 或被恶意破坏，<strong>立刻 /msg 联系管理员</strong>，CoreProtect 能快速复原。</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>🐺 小狼MC服务器 &mdash; 祝你玩得开心！🎮</p>
+            <p class="footer-links">
+                <a href="index.html">← 返回首页</a>
+                <span class="footer-sep">·</span>
+                <a href="http://mc.udfj.top:8100" target="_blank" rel="noopener">🗺️ BlueMap 地图</a>
+                <span class="footer-sep">·</span>
+                <a href="admin.html">🛠 管理员手册</a>
+                <span class="footer-sep">·</span>
+                <a href="#" data-copy="mc.udfj.top">📋 复制服务器地址</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

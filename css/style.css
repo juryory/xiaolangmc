@@ -128,6 +128,16 @@ strong {
     background: var(--accent-glow);
 }
 
+.nav-links a.nav-admin {
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: var(--accent);
+}
+
+.nav-links a.nav-admin:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
 /* 移动端菜单按钮 */
 .nav-toggle {
     display: none;
@@ -325,6 +335,13 @@ strong {
     color: var(--bg-primary);
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
 .hero-btn {
     display: inline-block;
     padding: 14px 36px;
@@ -341,6 +358,19 @@ strong {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(74, 222, 128, 0.4);
     color: var(--bg-primary);
+}
+
+.hero-btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    box-shadow: none;
+}
+
+.hero-btn-ghost:hover {
+    background: var(--accent-glow);
+    color: var(--accent);
+    box-shadow: 0 4px 16px rgba(74, 222, 128, 0.2);
 }
 
 .hero-scroll-hint {
@@ -408,6 +438,106 @@ strong {
     color: var(--text-secondary);
     margin-bottom: 32px;
     padding-left: 4px;
+}
+
+/* ===== 服务特色卡片 ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.feature-card {
+    position: relative;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.feature-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(74, 222, 128, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px var(--shadow);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.feature-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.feature-desc a {
+    word-break: break-all;
+}
+
+/* 入口卡片（可点击的 feature-card） */
+a.entry-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+a.entry-card .feature-title {
+    color: var(--accent);
+    transition: color var(--transition);
+}
+
+a.entry-card:hover .feature-title {
+    color: #fff;
+}
+
+a.entry-card.entry-card-admin {
+    background: rgba(251, 191, 36, 0.06);
+    border-color: rgba(251, 191, 36, 0.2);
+}
+
+a.entry-card.entry-card-admin:hover {
+    border-color: rgba(251, 191, 36, 0.4);
+}
+
+a.entry-card.entry-card-admin .feature-title {
+    color: var(--warning);
+}
+
+a.entry-card.entry-card-admin:hover .feature-title {
+    color: #fff;
+}
+
+a.entry-card.entry-card-admin::before {
+    background: linear-gradient(90deg, var(--warning), transparent);
 }
 
 /* ===== 命令卡片网格 ===== */
@@ -663,6 +793,21 @@ strong {
     font-size: 1rem;
 }
 
+.footer-links {
+    margin-top: 14px;
+    font-size: 0.9rem !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    align-items: center;
+}
+
+.footer-sep {
+    color: var(--border);
+    user-select: none;
+}
+
 /* ===== 回到顶部 ===== */
 .back-to-top {
     position: fixed;
@@ -694,6 +839,151 @@ strong {
 .back-to-top:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(74, 222, 128, 0.4);
+}
+
+/* ===== 管理员页面专用 ===== */
+.page-header {
+    min-height: 50vh;
+    padding: calc(var(--nav-height) + 60px) 24px 40px;
+}
+
+.page-header .title-line {
+    background: linear-gradient(135deg, #fff 0%, var(--warning) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-header .hero-btn {
+    background: var(--warning);
+    box-shadow: 0 4px 24px rgba(251, 191, 36, 0.3);
+}
+
+.page-header .hero-btn:hover {
+    box-shadow: 0 8px 32px rgba(251, 191, 36, 0.4);
+}
+
+.admin-warning {
+    max-width: 1200px;
+    margin: -24px auto 40px;
+    padding: 18px 24px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.admin-warning .tip-icon {
+    font-size: 1.4rem;
+}
+
+/* 表格容器与代码块 */
+.admin-section .quick-ref-table {
+    margin-top: 20px;
+}
+
+.admin-code-block {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+    margin: 12px 0;
+    white-space: pre;
+}
+
+/* 插件分类标签 */
+.plugin-category {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.plugin-category.core { background: rgba(74, 222, 128, 0.15); color: var(--accent); }
+.plugin-category.world { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.plugin-category.protect { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
+.plugin-category.perf { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.plugin-category.util { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+
+/* 侧边目录 */
+.admin-toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 0 0 32px;
+}
+
+.admin-toc h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.admin-toc ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 32px;
+    font-size: 0.9rem;
+}
+
+.admin-toc li {
+    break-inside: avoid;
+    margin-bottom: 6px;
+}
+
+.admin-toc a {
+    color: var(--text-secondary);
+}
+
+.admin-toc a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .admin-toc ul {
+        columns: 1;
+    }
+}
+
+/* 命令块 - 管理命令使用更醒目的样式 */
+.admin-command-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--warning);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+
+.admin-command-card .command-name {
+    color: var(--warning);
+    margin-bottom: 10px;
+}
+
+.admin-command-card ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.admin-command-card ul code {
+    font-size: 0.88em;
 }
 
 /* ===== 响应式 ===== */
