@@ -32,8 +32,10 @@ xiaolangmc/
 ├── images/
 │   └── install/                 # 安装教程用的 19 张截图
 ├── scripts/
-│   ├── download-install-images.sh   # Linux/macOS/Git Bash：一键下载安装截图
-│   └── download-install-images.ps1  # Windows PowerShell：一键下载安装截图
+│   ├── download-install-images.sh   # Linux/macOS/Git Bash：一键下载（含自动压缩）
+│   ├── download-install-images.ps1  # Windows PowerShell：一键下载（含自动压缩）
+│   ├── optimize-install-images.sh   # 独立压缩脚本（ImageMagick/Pillow）
+│   └── optimize-install-images.ps1  # 独立压缩脚本（.NET System.Drawing，无需外部依赖）
 └── README.md                    # 本文档
 ```
 
@@ -146,7 +148,31 @@ powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
 bash scripts/download-install-images.sh
 ```
 
-两个脚本功能完全相同：从原图床拉取全部图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`）。已有的文件会被自动跳过，可以反复执行。
+两个脚本功能完全相同：从原图床拉取全部图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`），下载完会**自动按最大宽度 1200px 压缩**一次。已下好的文件会被自动跳过。
+
+### 单独重新压缩
+
+如果图片已经下好，只想压缩，用独立压缩脚本：
+
+**Windows（PowerShell，无需外部依赖）：**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\optimize-install-images.ps1
+# 默认最大宽度 1200px，也可自定义：
+powershell -ExecutionPolicy Bypass -File scripts\optimize-install-images.ps1 -MaxWidth 960
+# 已优化过想强制重跑：
+powershell -ExecutionPolicy Bypass -File scripts\optimize-install-images.ps1 -Force
+```
+
+**Linux / macOS（需要 ImageMagick 或 Pillow）：**
+
+```bash
+bash scripts/optimize-install-images.sh          # 默认 1200
+bash scripts/optimize-install-images.sh 960      # 自定义最大宽
+FORCE=1 bash scripts/optimize-install-images.sh  # 强制重跑
+```
+
+压缩完目录内会生成 `.optimized` 标记文件，防止重复压缩把图片质量越压越差。
 
 > 如果以后要替换/新增步骤截图：把新图按上面的命名规则放进 `images/install/`，在 `install.html` 和 `INSTALL.md` 里添加或替换 `<figure class="install-shot">` / `![](...)` 即可，不需要改 `scripts/download-install-images.sh`。
 

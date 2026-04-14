@@ -70,3 +70,11 @@ if (( fail > 0 )); then
 fi
 
 echo "下一步：git add $OUT_DIR && git commit -m 'chore: 添加安装教程截图' && git push"
+
+# 下载完自动跑一次压缩（未安装 ImageMagick / Pillow 时会跳过）
+echo ""
+if [[ -x scripts/optimize-install-images.sh ]]; then
+  echo "正在尝试自动压缩图片（如缺依赖会被跳过）..."
+  bash scripts/optimize-install-images.sh 2>/dev/null || \
+    echo "（跳过：未安装 ImageMagick 或 Pillow。若要压缩请看 scripts/optimize-install-images.sh 顶部注释。）"
+fi

@@ -79,6 +79,15 @@ if ($fail -gt 0) {
     exit 1
 }
 
+Write-Host ""
+# 下载完自动跑一次压缩（基于 .NET System.Drawing，Windows 自带，无需额外依赖）
+$optimizeScript = Join-Path $PSScriptRoot 'optimize-install-images.ps1'
+if (Test-Path $optimizeScript) {
+    Write-Host "自动压缩图片中..." -ForegroundColor Cyan
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $optimizeScript
+}
+
+Write-Host ""
 Write-Host "下一步：" -ForegroundColor Cyan
 Write-Host "  git add $OutDir"
 Write-Host "  git commit -m 'chore: 添加安装教程截图'"
