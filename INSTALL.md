@@ -155,3 +155,17 @@ powershell -ExecutionPolicy Bypass -File scripts\optimize-install-images.ps1
 # Linux / macOS（需要 ImageMagick 或 Pillow）
 bash scripts/optimize-install-images.sh
 ```
+
+**想要更小的体积可以转 WebP**（体积约为优化 PNG 的 1/3～1/5）：
+
+```powershell
+# Windows：自动下载 cwebp.exe，一条命令搞定
+powershell -ExecutionPolicy Bypass -File scripts\convert-install-images-to-webp.ps1
+```
+
+```bash
+# Linux/macOS：需要先 apt/brew install webp
+bash scripts/convert-install-images-to-webp.sh
+```
+
+转换后会自动把本文档和 `install.html` 里的 `.png` 引用改成 `.webp`，可以直接 `git add` 再 push。

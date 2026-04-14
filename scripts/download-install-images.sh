@@ -71,10 +71,21 @@ fi
 
 echo "下一步：git add $OUT_DIR && git commit -m 'chore: 添加安装教程截图' && git push"
 
-# 下载完自动跑一次压缩（未安装 ImageMagick / Pillow 时会跳过）
+# 下载后走哪种压缩流程
 echo ""
-if [[ -x scripts/optimize-install-images.sh ]]; then
-  echo "正在尝试自动压缩图片（如缺依赖会被跳过）..."
-  bash scripts/optimize-install-images.sh 2>/dev/null || \
-    echo "（跳过：未安装 ImageMagick 或 Pillow。若要压缩请看 scripts/optimize-install-images.sh 顶部注释。）"
+if [[ "${WEBP:-0}" == "1" ]]; then
+  if [[ -x scripts/convert-install-images-to-webp.sh ]]; then
+    echo "WEBP=1：转换为 WebP..."
+    bash scripts/convert-install-images-to-webp.sh || \
+      echo "（WebP 转换失败，PNG 仍保留。）"
+  fi
+else
+  if [[ -x scripts/optimize-install-images.sh ]]; then
+    echo "自动压缩 PNG（如缺 ImageMagick/Pillow 会跳过）..."
+    bash scripts/optimize-install-images.sh 2>/dev/null || \
+      echo "（跳过：未安装 ImageMagick 或 Pillow。）"
+    echo ""
+    echo "提示：想要更小的体积可以跑 WebP 转换："
+    echo "  bash scripts/convert-install-images-to-webp.sh"
+  fi
 fi
