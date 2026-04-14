@@ -32,7 +32,8 @@ xiaolangmc/
 ├── images/
 │   └── install/                 # 安装教程用的 19 张截图
 ├── scripts/
-│   └── download-install-images.sh  # 一键从图床下载全部安装截图
+│   ├── download-install-images.sh   # Linux/macOS/Git Bash：一键下载安装截图
+│   └── download-install-images.ps1  # Windows PowerShell：一键下载安装截图
 └── README.md                    # 本文档
 ```
 
@@ -131,13 +132,21 @@ xiaolangmc/
 
 ## 安装教程截图
 
-`install.html` 与 `INSTALL.md` 引用了 `images/install/` 下的 19 张截图。克隆仓库后若该目录为空，执行：
+`install.html` 与 `INSTALL.md` 引用了 `images/install/` 下的 19 张截图。克隆仓库后若该目录为空，按你的系统选一条命令执行：
+
+**Windows (PowerShell)：**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
+```
+
+**Linux / macOS / Git Bash：**
 
 ```bash
 bash scripts/download-install-images.sh
 ```
 
-脚本会从原图床拉取所有图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`）。已有的文件会被跳过。
+两个脚本功能完全相同：从原图床拉取全部图片并按步骤名保存（`01-install-jdk.png` … `19-join.png`）。已有的文件会被自动跳过，可以反复执行。
 
 > 如果以后要替换/新增步骤截图：把新图按上面的命名规则放进 `images/install/`，在 `install.html` 和 `INSTALL.md` 里添加或替换 `<figure class="install-shot">` / `![](...)` 即可，不需要改 `scripts/download-install-images.sh`。
 

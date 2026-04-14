@@ -128,10 +128,18 @@
 
 ## 🛠 下载教程里的截图
 
-本教程所用截图放在 `images/install/` 目录下。如果你 clone 下来后该目录为空，可以执行仓库自带的下载脚本：
+本教程所用截图放在 `images/install/` 目录下。如果你 clone 下来后该目录为空，按你的系统选一条命令执行：
+
+**Windows（PowerShell）：**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
+```
+
+**Linux / macOS / Git Bash：**
 
 ```bash
 bash scripts/download-install-images.sh
 ```
 
-脚本会自动从图床拉取全部 19 张图，并按步骤命名保存。
+两个脚本功能相同，会自动从图床拉取全部 19 张图并按步骤命名保存。已存在的文件会被跳过。
