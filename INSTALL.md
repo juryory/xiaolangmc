@@ -12,19 +12,19 @@
 
 双击 `01-先安装我-microsoft-jdk-25-windows-x64.msi` 开始安装前置环境。
 
-![安装 JDK](images/install/01-install-jdk.png)
+![安装 JDK](images/install/01-install-jdk.webp)
 
 ### 2. 一直下一步完成安装
 
 一路点 **Next** 直到显示 *Completed*。
 
-![完成 JDK 安装](images/install/02-jdk-finish.png)
+![完成 JDK 安装](images/install/02-jdk-finish.webp)
 
 ### 3. 打开 HMCL 启动器
 
 安装完 JDK 后，双击 `02-再运行我-HMCL-3.12.2.exe` 打开启动器。
 
-![打开 HMCL](images/install/03-open-hmcl.png)
+![打开 HMCL](images/install/03-open-hmcl.webp)
 
 ---
 
@@ -32,33 +32,33 @@
 
 ### 1. 点击"创建游戏实例"
 
-![创建游戏实例](images/install/04-create-instance.png)
+![创建游戏实例](images/install/04-create-instance.webp)
 
 ### 2. 点击"安装新游戏"
 
-![安装新游戏](images/install/05-install-new.png)
+![安装新游戏](images/install/05-install-new.webp)
 
 ### 3. 搜索游戏版本 `1.21.11`
 
 ### 4. 点击"前往安装"
 
-![前往安装](images/install/06-goto-install.png)
+![前往安装](images/install/06-goto-install.webp)
 
 ### 5. 点击"安装"
 
-![点击安装](images/install/07-click-install.png)
+![点击安装](images/install/07-click-install.webp)
 
 ### 6. 等待安装完成
 
-![等待安装完成](images/install/08-waiting.png)
+![等待安装完成](images/install/08-waiting.webp)
 
 ### 7. 安装完成后点击"确定"
 
-![确定完成](images/install/09-confirm.png)
+![确定完成](images/install/09-confirm.webp)
 
 ### 8. 回到主页
 
-![回到主页](images/install/10-back-home.png)
+![回到主页](images/install/10-back-home.webp)
 
 ---
 
@@ -66,11 +66,11 @@
 
 ### 1. 点击"创建账户"
 
-![创建账户](images/install/11-create-account.png)
+![创建账户](images/install/11-create-account.webp)
 
 ### 2. 选择"离线模式"
 
-![选择离线模式](images/install/12-offline-mode.png)
+![选择离线模式](images/install/12-offline-mode.webp)
 
 > ⚠️ **离线模式的账户不安全，容易被别人冒用。** 也可以选择使用 [LittleSkin](https://littleskin.cn/auth/register) 站点认证登录，安全性更高。
 
@@ -78,11 +78,11 @@
 
 ### 4. 点击"登录"
 
-![输入用户名并登录](images/install/13-enter-name.png)
+![输入用户名并登录](images/install/13-enter-name.webp)
 
 ### 5. 点击"返回"
 
-![返回](images/install/14-back.png)
+![返回](images/install/14-back.webp)
 
 ---
 
@@ -90,15 +90,15 @@
 
 ### 1. 点击"启动游戏"
 
-![启动游戏](images/install/15-launch-game.png)
+![启动游戏](images/install/15-launch-game.webp)
 
 ### 2. 点击"多人游戏"
 
-![多人游戏](images/install/16-multiplayer.png)
+![多人游戏](images/install/16-multiplayer.webp)
 
 ### 3. 点击"添加服务器"
 
-![添加服务器](images/install/17-add-server.png)
+![添加服务器](images/install/17-add-server.webp)
 
 ### 4. 填写服务器信息
 
@@ -106,11 +106,11 @@
 - 服务器地址：`mc.udfj.top`
 - 点击"完成"
 
-![填写服务器信息](images/install/18-server-info.png)
+![填写服务器信息](images/install/18-server-info.webp)
 
 ### 5. 双击加入游戏
 
-![加入游戏](images/install/19-join.png)
+![加入游戏](images/install/19-join.webp)
 
 ---
 
