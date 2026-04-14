@@ -1,4 +1,4 @@
-# 批量下载小狼MC安装教程使用的截图到 images/install/
+﻿# 批量下载小狼MC安装教程使用的截图到 images/install/
 # 用法（在仓库根目录执行）：
 #   powershell -ExecutionPolicy Bypass -File scripts\download-install-images.ps1
 # 或直接双击右键"使用 PowerShell 运行"
