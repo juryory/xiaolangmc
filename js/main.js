@@ -97,6 +97,37 @@ function setupScrollAnimations() {
     });
 }
 
+// ===== 点击复制服务器地址 =====
+function setupCopyToClipboard() {
+    const targets = document.querySelectorAll('[data-copy]');
+
+    targets.forEach(el => {
+        el.addEventListener('click', async () => {
+            const text = el.getAttribute('data-copy');
+            const original = el.textContent;
+
+            try {
+                await navigator.clipboard.writeText(text);
+                el.classList.add('copied');
+                el.textContent = '已复制！';
+            } catch {
+                // 降级方案：选中文本
+                const range = document.createRange();
+                range.selectNode(el);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                el.classList.add('copied');
+                el.textContent = '请手动复制';
+            }
+
+            setTimeout(() => {
+                el.classList.remove('copied');
+                el.textContent = original;
+            }, 1500);
+        });
+    });
+}
+
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
@@ -104,4 +135,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollSpy();
     setupBackToTop();
     setupScrollAnimations();
+    setupCopyToClipboard();
 });
